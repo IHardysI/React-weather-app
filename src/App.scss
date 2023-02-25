@@ -1,4 +1,5 @@
 @import "./reset";
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 
 
 .App {
@@ -6,5 +7,89 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #001524;
+  background: url(./img/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Poppins';
+  p{margin: 0};
+}
+
+.card {
+  width: 450px;
+  height: 575px;
+  border-radius: 45px;
+  background-color: rgba(0,0,0,0.2);
+  padding: 47px 35px 59px 35px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  .card__up-block {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    .card__big-icon {
+      width: 100px;
+    }
+    .card__after-img-block {
+      .card__city {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 36px;
+        margin: 0;
+        font-family: 'Poppins';
+      }
+      .card__date {
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 27px;
+      }
+    }
+  }
+  .card__temperature {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    .card__tmp-numb {
+      display: flex;
+      justify-content: center;
+      margin-left: 5%;
+      span{
+        font-weight: 300;
+        font-size: 144px;
+        line-height: 140px;
+      }
+    }
+    .card__clouds {
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
+  .card__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    .card__item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      div{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+    }
+    .card__line {
+      height: 19px;
+      display: inline-block;
+      background-color: white;
+      width: 1px;
+    }
+  }
 }

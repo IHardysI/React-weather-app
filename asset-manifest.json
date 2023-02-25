@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/React-weather-app/static/css/main.0ac87c9a.css",
-    "main.js": "/React-weather-app/static/js/main.c220b506.js",
+    "main.js": "/React-weather-app/static/js/main.223e97bc.js",
     "static/js/787.1a975cf7.chunk.js": "/React-weather-app/static/js/787.1a975cf7.chunk.js",
     "static/media/background.png": "/React-weather-app/static/media/background.f21bea9d5a4f27c08111.png",
     "static/media/brand-icons.svg": "/React-weather-app/static/media/brand-icons.6729d29753e000c17489.svg",
@@ -22,16 +22,20 @@
     "static/media/outline-icons.woff2": "/React-weather-app/static/media/outline-icons.687a4990ea22bb1a49d4.woff2",
     "static/media/humidit.svg": "/React-weather-app/static/media/humidit.2723870c549f1458f462b94ea466f135.svg",
     "static/media/wind.svg": "/React-weather-app/static/media/wind.69feac95ab39bbcfb3d17482a07b156e.svg",
+    "static/media/Snowy.svg": "/React-weather-app/static/media/Snowy.ed96b559bff0d6fe704c60a6b8f210ef.svg",
     "static/media/Sunny.svg": "/React-weather-app/static/media/Sunny.102d43e7fb263aea2709596c02cb35ec.svg",
+    "static/media/RainThunder.svg": "/React-weather-app/static/media/RainThunder.5169db918d7358e8420a429bf3bb58c6.svg",
+    "static/media/PartlyCloudy.svg": "/React-weather-app/static/media/PartlyCloudy.b9a0186aa36c1304918cc167b0626ded.svg",
+    "static/media/Rainy.svg": "/React-weather-app/static/media/Rainy.78acac74df6a50c38bf2975e47ddc34c.svg",
     "static/media/fills.svg": "/React-weather-app/static/media/fills.02819f3772570b1494d50b5b8c06064b.svg",
     "static/media/visab.svg": "/React-weather-app/static/media/visab.a2630341578f7d924ba934dd62d613e8.svg",
     "index.html": "/React-weather-app/index.html",
     "main.0ac87c9a.css.map": "/React-weather-app/static/css/main.0ac87c9a.css.map",
-    "main.c220b506.js.map": "/React-weather-app/static/js/main.c220b506.js.map",
+    "main.223e97bc.js.map": "/React-weather-app/static/js/main.223e97bc.js.map",
     "787.1a975cf7.chunk.js.map": "/React-weather-app/static/js/787.1a975cf7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0ac87c9a.css",
-    "static/js/main.c220b506.js"
+    "static/js/main.223e97bc.js"
   ]
 }

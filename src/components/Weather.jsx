@@ -34,7 +34,7 @@ export default function Weather(props) {
                 <img className='card__big-icon' src={weatherIcon} alt="sun" />
                 <div className='card__after-img-block'>
                     <h2 className='card__city'>{props.weatherData.name}</h2>
-                    <p className='card__date'>{moment().format('dddd')} {moment().subtract(10, 'days').calendar()}</p>
+                    <p className='card__date'>{moment().format('dddd')} {moment().format('L')}</p>
                 </div>
             </div>
             <div className='card__temperature'>

@@ -2,36 +2,36 @@ import { Card } from 'semantic-ui-react'
 import moment from 'moment';
 import style from '../App.scss'
 import sunny from '../img/Sunny.svg'
+import cloudy from '../img/PartlyCloudy.svg'
+import snowy from '../img/Snowy.svg'
+import rainy from '../img/Rainy.svg'
+import rainThunder from '../img/RainThunder.svg'
 import visab from '../img/visab.svg'
 import feels from '../img/fills.svg'
 import humid from '../img/humidit.svg'
 import wind from '../img/wind.svg'
 
-const white = {
-    color: "white"
-}
-
-const cardStyle = {
-    boxShadow: "none",
-    backgroundColor: "rgba(0,0,0,0.25)",
-    borderRadius: "45px",
-    color: "white",
-    maxWidth: "350px",
-    maxHeight: "475px"
-}
-
-const contentStyle = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column"
-}
 
 export default function Weather(props) {
+
+    let weatherIcon 
+    if(props.weatherData.weather[0].main === 'Clouds') {
+        weatherIcon = cloudy 
+    } else if(props.weatherData.weather[0].main === 'Clear') {
+        weatherIcon = sunny
+    } else if(props.weatherData.weather[0].main === 'Snow') {
+        weatherIcon = snowy
+    } else if(props.weatherData.weather[0].main === 'Rain') {
+        weatherIcon = rainy
+    } else {
+        weatherIcon = rainThunder
+    }
+
+
     return(
         <div className='card'>
             <div className='card__up-block'>
-                <img className='card__big-icon' src={sunny} alt="sun" />
+                <img className='card__big-icon' src={weatherIcon} alt="sun" />
                 <div className='card__after-img-block'>
                     <h2 className='card__city'>{props.weatherData.name}</h2>
                     <p className='card__date'>{moment().format('dddd')} {moment().subtract(10, 'days').calendar()}</p>

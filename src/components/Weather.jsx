@@ -38,13 +38,23 @@ export default function Weather(props) {
                 </div>
             </div>
             <div className='card__temperature'>
-                <p className='card__tmp-numb'><span>{Math.round(props.weatherData.main.temp)}</span> °C</p>
+                <p className='card__tmp-numb'><span className='card__numb'>{Math.round(props.weatherData.main.temp)}</span> °C</p>
                 <p className='card__clouds'>{props.weatherData.weather[0].description}</p>
             </div>
             <div className='card__stats'>
-                <p className='card__firs-line card__item'><div><img src={visab} alt="visab" />Visibility {props.weatherData.visibility} ft</div> <span className='card__line'></span> <div><img src={feels} alt="feels" /> Feels like {Math.round(props.weatherData.main.feels_like)} °C</div> </p>
-                <p className='card__humid card__item'><div><img src={humid} alt="humidity" />Humidity {props.weatherData.main.humidity} %</div> <span className='card__line'></span><div> <img src={wind} alt="wind" /> Wind {props.weatherData.wind.speed} km</div></p>
+                <div className='card__left-block'>
+                    <p className='card__left-item'><div><img src={visab} alt="visab" />Visibility {props.weatherData.visibility} ft</div> <span className='card__line'></span></p>
+                    <p className='card__left-item'><div><img src={humid} alt="humidity" />Humidity {props.weatherData.main.humidity} %</div> <span className='card__line'></span></p>
+                </div>
+                <div className='card__right-block'>
+                    <p className='card__right-item'><div><img src={feels} alt="feels" /> Feels like {Math.round(props.weatherData.main.feels_like)} °C</div> </p>
+                    <p className='card__right-item'><div> <img src={wind} alt="wind" /> Wind {props.weatherData.wind.speed} km</div></p>
+                </div>
             </div>
         </div>
     )
 }
+
+
+{/* <p className='card__firs-line card__item'><div><img src={visab} alt="visab" />Visibility {props.weatherData.visibility} ft</div> <span className='card__line'></span> <div><img src={feels} alt="feels" /> Feels like {Math.round(props.weatherData.main.feels_like)} °C</div> </p>
+<p className='card__humid card__item'><div><img src={humid} alt="humidity" />Humidity {props.weatherData.main.humidity} %</div> <span className='card__line'></span><div> <img src={wind} alt="wind" /> Wind {props.weatherData.wind.speed} km</div></p> */}

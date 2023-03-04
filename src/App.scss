@@ -6,8 +6,14 @@
   align-items: center;
 }
 
+body {
+  background: url(./img/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .App {
+  overflow-x: auto;
   padding: 15px;
   display: flex;
   gap: 25px;
@@ -22,6 +28,7 @@
   @media(max-width: 990.98px) {
     &{
       flex-direction: column;
+      height: 100%;
     }
   }
 }
@@ -193,6 +200,35 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 40px;
+    width: inherit;
+    height: inherit;
+    input {
+      width: 55%;
+      height: 10%;
+      border-radius: 45px;
+      padding: 10px 15px;
+      outline: none;
+      background-color: rgba(0,0,0,0.15);
+      color: white;
+      font-family: "Poppins";
+      text-align: center;
+      &::placeholder {
+        color: white;
+        font-family: "Poppins";
+        text-align: center;
+      }
+    }
+    button {
+      width: 25%;
+      height: 25%;
+      font-size: 80px;
+      font-family: "Poppins";
+      font-weight: 300;
+      color: white;
+      background-color: rgba(0,0,0,0.15);
+      border-radius: 30px;
+    }
   }
   width: 450px;
   height: 575px;

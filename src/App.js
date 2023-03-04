@@ -31,6 +31,12 @@ function App() {
 
   const handleCitySubmit = async (e) => {
     e.preventDefault()
+
+    if (cityName.trim() === '') {
+      setCityName('incorrect city')
+      return;
+    }
+
     await fetch(`${process.env.REACT_APP_API_URL}/weather/?q=${cityName}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
     .then(res => res.json())
     .then(result => {

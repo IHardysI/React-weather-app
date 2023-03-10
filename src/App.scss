@@ -6,6 +6,11 @@
   align-items: center;
 }
 
+#root {
+  height: inherit;
+}
+
+
 body {
   background: url(./img/background.png);
   background-repeat: no-repeat;
@@ -13,24 +18,43 @@ body {
 }
 
 .App {
-  overflow-x: auto;
+  height: 100%;
   padding: 15px;
   display: flex;
-  gap: 25px;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+
   background: url(./img/background.png);
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Poppins';
-  p{margin: 0};
-  @media(max-width: 990.98px) {
-    &{
-      flex-direction: column;
-      height: 100%;
+  .app__bottom {
+    color: white;
+    font-family: "Poppins";
+    text-align: center;
+  }
+  .app__cards {
+    display: flex;
+    flex: 1 1 auto;
+    gap: 25px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow-x: auto;
+    align-items: center;
+    & > * {
+      flex: 0 0 auto;
+    }
+    @media(max-width: 990.98px) {
+      &{
+        justify-content: flex-start;
+        height: 100%;
+      }
     }
   }
+  .justify-content {
+    justify-content: start;
+  }
+  p{margin: 0};
 }
 
 
@@ -218,6 +242,9 @@ body {
         font-family: "Poppins";
         text-align: center;
       }
+      &:focus::placeholder{
+        color: transparent;
+      }
     }
     button {
       width: 25%;
@@ -260,3 +287,4 @@ body {
       gap: 10px;
     }
 }}
+

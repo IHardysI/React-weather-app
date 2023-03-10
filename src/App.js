@@ -1,6 +1,7 @@
 import './App.scss';
 import React from 'react';
 import Weather from './components/Weather'
+import heart from './img/heart.svg'
 
 function App() {
   const [lat, setLat] = React.useState([])
@@ -8,9 +9,13 @@ function App() {
   const [data, setData] = React.useState([])
   const [cityName, setCityName] = React.useState('')
   const [cityData, setCityData] = React.useState([])
+  const [error, setError] = React.useState(null)
+  const [cardCount, setCardCount] = React.useState(0)
 
 
 
+
+  
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -19,13 +24,20 @@ function App() {
         setLong(position.coords.longitude);
       });
 
-      await fetch(`${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
-      .then(res => res.json())
-      .then(result => {
-        setData(result)
-        console.log(result);
-      });
+      try {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
+        if (res.ok) {
+          const result = await res.json();
+          setData(result);
+          console.log(result);
+        } else {
+          console.log(error)
+        }
+      } catch (err) {
+        console.log(error)
+      }
     }
+
     fetchData();
   }, [lat,long])
 
@@ -37,35 +49,50 @@ function App() {
       return;
     }
 
-    await fetch(`${process.env.REACT_APP_API_URL}/weather/?q=${cityName}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
-    .then(res => res.json())
-    .then(result => {
-      setCityData(cityData => [...cityData, result])
-      setCityName('')
-    })
+    try {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/weather/?q=${cityName}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
+      if (res.ok) {
+        const result = await res.json();
+        setCityData(cityData => [...cityData, result])
+        setCityName('')
+        setError(null);
+        setCardCount(prevCardCount => setCardCount(prevCardCount + 1))
+      } else {
+        setError('Wrong sity name');
+      }
+    } catch (err) {
+      setError('Wrong sity name');
+    }
   }
+
+
+
   
 
   return (
     <div className="App">
-      <div>
+      <div className={`app__cards ${cardCount > 0 ? 'justify-content' : ''}`}>
         {(typeof data.main != 'undefined') ? (
           <Weather weatherData={data}/>
         ): (
           <div></div>
         )}
-      </div>
-      {cityData.map(city => (
-        <div key={city.id}>
-          <Weather weatherData={city}/>
+        {cityData.map(city => (
+          <div key={city.id}>
+            <Weather weatherData={city}/>
+          </div>
+        ))}
+        <div className='app__form'>
+          <form onSubmit={handleCitySubmit}>
+            <input type='text' value={cityName}  onChange={(e) => setCityName(e.target.value)} placeholder='Enter city name'/>
+            {error && <p className='app__error'>{error}</p>}
+            <button type='submit'>+</button>
+          </form>
         </div>
-      ))}
-      <div className='app__form'>
-        <form onSubmit={handleCitySubmit}>
-          <input type='text' value={cityName} onChange={(e) => setCityName(e.target.value)} placeholder='Enter city name'/>
-          <button type='submit'>+</button>
-        </form>
       </div>
+      <p className='app__bottom'>
+      Made with  <img src={heart} alt="heart"></img>  by Uładzisłaŭ Karotkin
+      </p>
     </div>
   );
 }
